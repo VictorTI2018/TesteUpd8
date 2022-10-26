@@ -7,7 +7,7 @@ namespace Upd8.Infra.Data.Repository
 {
     public class RepositoryBase<TEntity, TKey> : IRepositoryBase<TEntity, TKey> where TEntity : BaseEntity
     {
-        protected readonly SqlContext _sqlContext;
+        private readonly SqlContext _sqlContext;
         public RepositoryBase(SqlContext sqlContext)
         {
             _sqlContext = sqlContext;

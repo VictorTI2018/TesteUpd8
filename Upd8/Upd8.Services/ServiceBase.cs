@@ -6,7 +6,7 @@ namespace Upd8.Services
 {
     public class ServiceBase<TEntity, TKey> : IServiceBase<TEntity, TKey> where TEntity : BaseEntity
     {
-        protected readonly IRepositoryBase<TEntity, TKey> _repoBase;
+        private readonly IRepositoryBase<TEntity, TKey> _repoBase;
 
         public ServiceBase(IRepositoryBase<TEntity, TKey> repositoryBase)
         {
