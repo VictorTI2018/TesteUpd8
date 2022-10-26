@@ -1,12 +1,10 @@
-﻿namespace Upd8.Core.Domain.Entities
-{
-    public class BaseEntity
-    {
-        public BaseEntity()
-        {
-            Id = Guid.NewGuid();
-        }
+﻿using System.ComponentModel.DataAnnotations;
 
+namespace Upd8.Core.Domain.Entities
+{
+    public abstract class BaseEntity
+    {
+        [Key]
         public Guid Id { get; set; }
 
         private DateTime? _createdAt;
