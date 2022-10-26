@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using Upd8.Infra.CrossCutting.IOC;
+using Upd8.Infra.Data.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +11,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+#region Conexão com o banco de dados
+var connection = builder.Configuration.GetConnectionString("SqlConnectionString");
+builder.Services.AddDbContext<SqlContext>(options =>
+{
+    options.UseSqlServer(connection);
+});
+#endregion Conexão com o banco de dados
+
+#region Configurando dependencias do projeto
 builder.Services.AddRepositoryDependency();
 builder.Services.AddServiceDependency();
+#endregion Configurando dependencias do projeto
 
 var app = builder.Build();
 
