@@ -10,7 +10,7 @@ namespace Upd8.Infra.Data.Repository
 
         public RepositoryCliente(SqlContext sqlContext) : base(sqlContext)
         {
-            _sqlContext = sqlContext
+            _sqlContext = sqlContext;
         }
     }
 }

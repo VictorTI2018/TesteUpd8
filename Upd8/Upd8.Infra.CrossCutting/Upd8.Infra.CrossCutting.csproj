@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Upd8.Core.Domain\Upd8.Core.Domain.csproj" />
+    <ProjectReference Include="..\Upd8.Infra.Data\Upd8.Infra.Data.csproj" />
+    <ProjectReference Include="..\Upd8.Services\Upd8.Services.csproj" />
+  </ItemGroup>
+
 </Project>

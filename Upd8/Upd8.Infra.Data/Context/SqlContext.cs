@@ -9,7 +9,7 @@ namespace Upd8.Infra.Data.Context
 
         public SqlContext(DbContextOptions<SqlContext> options) : base(options) { }
 
-        public DbSet<Cliente>? Cliente { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
