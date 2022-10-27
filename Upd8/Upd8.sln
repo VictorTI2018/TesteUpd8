@@ -9,17 +9,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{AA1CD033-E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{07D2692A-4F81-4394-9749-3046A1C0B31C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Upd8.Application.Api", "Upd8.Application.Api\Upd8.Application.Api.csproj", "{20BC0AB0-88D2-4328-9032-5EA61438DCFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Upd8.Application.Api", "Upd8.Application.Api\Upd8.Application.Api.csproj", "{20BC0AB0-88D2-4328-9032-5EA61438DCFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Upd8.Core.Domain", "Upd8.Core.Domain\Upd8.Core.Domain.csproj", "{55F2B88F-3712-460B-AB3E-ADA84BE3AA2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Upd8.Core.Domain", "Upd8.Core.Domain\Upd8.Core.Domain.csproj", "{55F2B88F-3712-460B-AB3E-ADA84BE3AA2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Upd8.Infra.Data", "Upd8.Infra.Data\Upd8.Infra.Data.csproj", "{CD604D04-A652-416B-8D5E-1EA94F357965}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Upd8.Infra.Data", "Upd8.Infra.Data\Upd8.Infra.Data.csproj", "{CD604D04-A652-416B-8D5E-1EA94F357965}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Upd8.Infra.CrossCutting", "Upd8.Infra.CrossCutting\Upd8.Infra.CrossCutting.csproj", "{9C43F4E0-E89A-4776-B90D-6B098B93919E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Upd8.Infra.CrossCutting", "Upd8.Infra.CrossCutting\Upd8.Infra.CrossCutting.csproj", "{9C43F4E0-E89A-4776-B90D-6B098B93919E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{6EDFFCB9-96D5-401C-9B17-2172548C8AD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Upd8.Services", "Upd8.Services\Upd8.Services.csproj", "{49A705D9-D7C3-4624-85E7-2BC198544639}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Upd8.Services", "Upd8.Services\Upd8.Services.csproj", "{49A705D9-D7C3-4624-85E7-2BC198544639}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MVC", "MVC", "{2DE2DA38-27C5-47C4-A0E2-BC73552C4D16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Upd8.MVC.Web", "Upd8.MVC.Web\Upd8.MVC.Web.csproj", "{C03EA1D6-8E2B-4C1C-ADFE-60A853E76C1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +51,10 @@ Global
 		{49A705D9-D7C3-4624-85E7-2BC198544639}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49A705D9-D7C3-4624-85E7-2BC198544639}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49A705D9-D7C3-4624-85E7-2BC198544639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C03EA1D6-8E2B-4C1C-ADFE-60A853E76C1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C03EA1D6-8E2B-4C1C-ADFE-60A853E76C1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C03EA1D6-8E2B-4C1C-ADFE-60A853E76C1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C03EA1D6-8E2B-4C1C-ADFE-60A853E76C1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +65,7 @@ Global
 		{CD604D04-A652-416B-8D5E-1EA94F357965} = {07D2692A-4F81-4394-9749-3046A1C0B31C}
 		{9C43F4E0-E89A-4776-B90D-6B098B93919E} = {07D2692A-4F81-4394-9749-3046A1C0B31C}
 		{49A705D9-D7C3-4624-85E7-2BC198544639} = {6EDFFCB9-96D5-401C-9B17-2172548C8AD2}
+		{C03EA1D6-8E2B-4C1C-ADFE-60A853E76C1A} = {2DE2DA38-27C5-47C4-A0E2-BC73552C4D16}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6DB9C2D0-42B2-4435-9794-35CEA63BC4C1}
