@@ -42,5 +42,17 @@ namespace Upd8.Application.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAsync(TKey id)
+        {
+            try
+            {
+                return Ok(await _serviceBase.DeleteAsync(id));
+            }catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

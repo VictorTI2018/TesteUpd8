@@ -8,14 +8,51 @@
 }
 <div class="card border-1">
     <div class="card-body">
-        <div class="card">
+        <div class="card mb-1">
             <div class="card-body">
                 <div class="card-title">
                     <h3>Consultar Cliente</h3>
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">CPF:</span>
+                                <input type="text" class="form-control" placeholder="CPF..." aria-label="CPF" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">Nome:</span>
+                                <input type="text" class="form-control" placeholder="Nome..." aria-label="Nome" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">Data Nascimento:</span>
+                                <input type="date" class="form-control"  aria-label="Nome" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="mb-3">
+                                <label for="sexi" class="col-sm-2 col-form-label">Sexo:</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                    <label class="form-check-label" for="inlineRadio1">1</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">2</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a class="btn btn-primary ">Pesquisar</a>
+                        <a class="btn btn-secondary">Limpar</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card mt-2">
             <div class="card-body">
                 <div class="card-title">
                     <h2 class="text-primary">Resultado da pesquisa</h2>
@@ -34,13 +71,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach(var item in Model) {
+                        @foreach (var item in Model)
+                        {
                             <tr>
                                 <td colcolspan="2">
                                     <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">
                                         Editar
                                     </a>
-                                   
+
                                 </td>
                                 <td>
                                     <a asp-action="Remove" asp-route-id="@item.Id" class="btn btn-danger">

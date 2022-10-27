@@ -9,5 +9,7 @@ namespace Upd8.Core.Domain.Interfaces.Repositories
 {
     public interface IRepositoryCliente: IRepositoryBase<Cliente, Guid>
     {
+
+        IEnumerable<Cliente> RetornarClientesFiltrados(Cliente filter);
     }
 }

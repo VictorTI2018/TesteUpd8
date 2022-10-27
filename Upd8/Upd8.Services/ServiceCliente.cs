@@ -12,5 +12,10 @@ namespace Upd8.Services
         {
             _repoCliente = repositoryCliente;
         }
+
+        public IEnumerable<Cliente> RetornarClientesFiltrados(Cliente filter)
+        {
+            return _repoCliente.RetornarClientesFiltrados(filter);
+        }
     }
 }

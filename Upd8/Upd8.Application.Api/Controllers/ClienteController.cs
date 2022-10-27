@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Upd8.Core.Domain.Dtos;
 using Upd8.Core.Domain.Entities;
@@ -17,6 +16,13 @@ namespace Upd8.Application.Api.Controllers
         {
             _serviceCliente = serviceCliente;
             _mapper = mapper;
+        }
+
+        [HttpGet("filtro")]
+        public IActionResult Filtro([FromQuery] ClienteDto filter)
+        {
+            Cliente cliente = _mapper.Map<Cliente>(filter);
+            return Ok(_serviceCliente.RetornarClientesFiltrados(cliente));
         }
     }
 }

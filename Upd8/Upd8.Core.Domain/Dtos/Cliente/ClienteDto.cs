@@ -19,7 +19,7 @@ namespace Upd8.Core.Domain.Dtos
 
         public string? Logradouro { get; set; }
 
-        public string UF { get; set; }
+        public string? UF { get; set; }
 
         public string? Cidade { get; set; }
     }

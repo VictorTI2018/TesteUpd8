@@ -9,5 +9,6 @@ namespace Upd8.Core.Domain.Interfaces.Services
 {
     public interface IServiceCliente: IServiceBase<Cliente, Guid>
     {
+        IEnumerable<Cliente> RetornarClientesFiltrados(Cliente filter);
     }
 }
