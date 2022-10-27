@@ -70,7 +70,7 @@ namespace Upd8.Infra.Data.Migrations
                     b.HasIndex("CPF")
                         .IsUnique();
 
-                    b.ToTable("Cliente");
+                    b.ToTable("Cliente", (string)null);
                 });
 #pragma warning restore 612, 618
         }

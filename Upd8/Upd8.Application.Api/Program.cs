@@ -1,6 +1,8 @@
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Upd8.Infra.CrossCutting.IOC;
 using Upd8.Infra.Data.Context;
+using Upd8.Infra.Shared.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +25,17 @@ builder.Services.AddDbContext<SqlContext>(options =>
 builder.Services.AddRepositoryDependency();
 builder.Services.AddServiceDependency();
 #endregion Configurando dependencias do projeto
+
+#region Mapper
+
+var configuration = new MapperConfiguration(cfg =>
+{
+    cfg.AddProfile(new DtoMappingProfile());
+});
+
+IMapper mapper = configuration.CreateMapper();
+builder.Services.AddSingleton(mapper);
+#endregion Mapper
 
 var app = builder.Build();
 

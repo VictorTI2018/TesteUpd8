@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Upd8.Core.Domain.Enum;
 
-namespace Upd8.Core.Domain.Entities
+namespace Upd8.Core.Domain.Dtos
 {
-    public class Cliente : BaseEntity
+    public class ClienteDto
     {
         public string? Nome { get; set; }
 
@@ -19,7 +19,7 @@ namespace Upd8.Core.Domain.Entities
 
         public string? Logradouro { get; set; }
 
-        public string? UF { get; set; }
+        public string UF { get; set; }
 
         public string? Cidade { get; set; }
     }

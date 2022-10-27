@@ -12,7 +12,7 @@ namespace Upd8.MVC.Web.Models
 
         public string Logradouro { get; set; }
 
-        public char UF { get; set; }
+        public string UF { get; set; }
 
         public string Cidade { get; set; }
 

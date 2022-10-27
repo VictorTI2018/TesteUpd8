@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Upd8.Infra.CrossCutting\Upd8.Infra.CrossCutting.csproj" />
     <ProjectReference Include="..\Upd8.Infra.Data\Upd8.Infra.Data.csproj" />
+    <ProjectReference Include="..\Upd8.Infra.Shared\Upd8.Infra.Shared.csproj" />
   </ItemGroup>
 
 </Project>
