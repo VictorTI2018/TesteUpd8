@@ -20,5 +20,15 @@ namespace Upd8.MVC.Web.Controllers
         {
             //throw new NotImplementedException();
         }
+
+        protected override void ViewBagCreate()
+        {
+            //throw new NotImplementedException();
+        }
+
+        protected override void ViewBagEdit()
+        {
+            //throw new NotImplementedException();
+        }
     }
 }

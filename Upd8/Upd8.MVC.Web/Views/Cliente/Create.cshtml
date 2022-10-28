@@ -1,0 +1,140 @@
+﻿@model ClienteModel
+@{
+    ViewData["Title"] = "Cadastrar Cliente";
+}
+
+<div class="card border-1">
+    <div class="card-body">
+        <div class="card-title">
+            <h4 class="text-primary">Cadastro Cliente</h4>
+        </div>
+        <hr/>
+        <form asp-action="Create">
+
+            <div class="row">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">CPF:</span>
+                            <input asp-for="CPF" type="text" class="form-control" placeholder="CPF..." aria-label="CPF" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Nome:</span>
+                            <input asp-for="Nome" type="text" class="form-control" placeholder="Nome..." aria-label="Nome" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Data Nascimento:</span>
+                            <input asp-for="DataNascimento" type="date" class="form-control" aria-label="Nome" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="mb-3">
+                            <label for="sexi" class="col-sm-2 col-form-label">Sexo:</label>
+                            <div class="form-check form-check-inline">
+                                <input asp-for="Genero" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="0">
+                                <label class="form-check-label" for="inlineRadio1">Masculino</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input asp-for="Genero" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="1">
+                                <label class="form-check-label" for="inlineRadio2">Feminino</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Endereço:</span>
+                            <input type="text" class="form-control" placeholder="Endereço..." aria-label="Nome" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" >UF:</span>
+                            <select class="form-select" asp-for="UF" id="estados">
+                                <option value="">[Selecione um estado]</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Cidades:</span>
+                            <select class="form-select" asp-for="Cidade" id="cidades" disabled>
+                                <option value="">[Selecione uma cidade]</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-md-flex justify-content-md-end">
+                   <div class="col-2 mx-2">
+                        <input class="btn btn-primary form-control" type="submit" value="Cadastrar" />
+                        
+                   </div>
+                   <div class="col-2">
+                        <a asp-action="List" class="btn btn-secondary form-control">
+                            Limpar
+                        </a>
+                   </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            buscarEstados()
+
+            $('#estados').on('change', function () {
+                var estado = $(this).val()
+                buscarCidadesPorEstado(estado)
+            })
+        })
+
+        function buscarEstados () {
+            $.ajax({
+                url: "https://servicodados.ibge.gov.br/api/v1/localidades/estados",
+                methods: "GET",
+                contentType: 'application/json; charset=utf8',
+                dataType: 'json',
+                success: function (response) {
+                    
+                    $.each(response, function (index, value)  {
+                        $('#estados').append($('<option>', {
+                            text: value.sigla,
+                            value: value.sigla
+                        }))
+                    })
+                },
+                error: function () {
+
+                }
+            })
+        }
+
+        function buscarCidadesPorEstado (uf) {
+            $.ajax({
+                url: `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`,
+                method: 'GET',
+                contentType: 'application/json; charset=utf8',
+                dataType: 'json',
+                success: function (response) {
+                    $('#cidades').prop("disabled", false)
+                    $.each(response, function (index, value) {
+                        $('#cidades').append($('<option>', {
+                            text: value.nome,
+                            value: value.nome
+                        }))
+                    })
+                },
+                error: function () {
+
+                }
+
+            })
+        }
+    </script>
+}

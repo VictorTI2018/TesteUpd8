@@ -30,5 +30,38 @@ namespace Upd8.MVC.Web.Controllers
             Listagem();
             return View(listTmodel.ToPagedList(pageNumber, QuantidadeDeLinhas));
         }
+
+        protected abstract void ViewBagCreate();
+
+        public async Task<IActionResult> Create()
+        {
+            ViewBagCreate();
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(TEntityModel model)
+        {
+            TEntity dados = _mapper.Map<TEntity>(model);
+            if(ModelState.IsValid)
+            {
+                var response = await _serviceBase.SaveAsync(dados);
+                if (response != null) return RedirectToAction(nameof(List));
+                return View(model);
+            }
+            return View(model);
+            
+        }
+
+        protected abstract void ViewBagEdit();
+        public async Task<IActionResult> Edit(TKey id)
+        {
+            TEntity dados = await _serviceBase.GetByIdAsync(id);
+            ViewBag["id"] = id;
+
+            ViewBagEdit();
+            if (dados != null) return View(_mapper.Map<TEntityModel>(dados));
+            return NotFound();
+        }
     }
 }
